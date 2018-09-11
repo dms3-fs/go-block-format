@@ -1,4 +1,4 @@
-// Package blocks contains the lowest level of IPLD data structures.
+// Package blocks contains the lowest level of DMS3LD data structures.
 // A block is raw data accompanied by a CID. The CID contains the multihash
 // corresponding to the block.
 package blocks
@@ -7,9 +7,9 @@ import (
 	"errors"
 	"fmt"
 
-	cid "github.com/ipfs/go-cid"
-	u "github.com/ipfs/go-ipfs-util"
-	mh "github.com/multiformats/go-multihash"
+	cid "github.com/dms3-fs/go-cid"
+	u "github.com/dms3-fs/go-fs-util"
+	mh "github.com/dms3-mft/go-multihash"
 )
 
 // ErrWrongHash is returned when the Cid of a block is not the expected
@@ -24,7 +24,7 @@ type Block interface {
 	Loggable() map[string]interface{}
 }
 
-// A BasicBlock is a singular block of data in ipfs. It implements the Block
+// A BasicBlock is a singular block of data in dms3fs. It implements the Block
 // interface.
 type BasicBlock struct {
 	cid  *cid.Cid
